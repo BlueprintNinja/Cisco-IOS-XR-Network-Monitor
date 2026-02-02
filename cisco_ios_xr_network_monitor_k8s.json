@@ -1,4 +1,13 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_INFLUXDB",
+      "label": "InfluxDB",
+      "description": "Select the InfluxDB data source for Cisco IOS-XR metrics",
+      "type": "datasource",
+      "pluginId": "influxdb"
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -25,7 +34,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+        "uid": "${DS_INFLUXDB}"
       },
       "gridPos": {
         "h": 1,
@@ -38,7 +47,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+            "uid": "${DS_INFLUXDB}"
           },
           "refId": "A"
         }
@@ -49,7 +58,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -103,7 +112,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+            "uid": "${DS_INFLUXDB}"
           },
           "query": "SELECT last(\"total_cpu_one_minute\") FROM \"Cisco-IOS-XR-wdsysmon-fd-oper:system-monitoring/cpu-utilization\" WHERE \"host\" =~ /^$node$/ AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
@@ -116,7 +125,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -170,7 +179,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+            "uid": "${DS_INFLUXDB}"
           },
           "query": "SELECT (last(\"ram_memory\") - last(\"free_physical_memory\")) / last(\"ram_memory\") * 100 FROM \"Cisco-IOS-XR-nto-misc-oper:memory-summary/nodes/node/summary\" WHERE \"host\" =~ /^$node$/ AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
@@ -183,7 +192,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+        "uid": "${DS_INFLUXDB}"
       },
       "gridPos": {
         "h": 1,
@@ -196,7 +205,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+            "uid": "${DS_INFLUXDB}"
           },
           "refId": "A"
         }
@@ -207,7 +216,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -294,7 +303,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+            "uid": "${DS_INFLUXDB}"
           },
           "legendFormat": "CPU 1 Min Avg",
           "query": "SELECT mean(\"total_cpu_one_minute\") FROM \"Cisco-IOS-XR-wdsysmon-fd-oper:system-monitoring/cpu-utilization\" WHERE \"host\" =~ /^$node$/ AND $timeFilter GROUP BY time($__interval) fill(null)",
@@ -304,7 +313,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+            "uid": "${DS_INFLUXDB}"
           },
           "legendFormat": "CPU 5 Min Avg",
           "query": "SELECT mean(\"total_cpu_five_minute\") FROM \"Cisco-IOS-XR-wdsysmon-fd-oper:system-monitoring/cpu-utilization\" WHERE \"host\" =~ /^$node$/ AND $timeFilter GROUP BY time($__interval) fill(null)",
@@ -318,7 +327,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -395,7 +404,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+            "uid": "${DS_INFLUXDB}"
           },
           "legendFormat": "Total RAM",
           "query": "SELECT mean(\"ram_memory\") FROM \"Cisco-IOS-XR-nto-misc-oper:memory-summary/nodes/node/summary\" WHERE \"host\" =~ /^$node$/ AND $timeFilter GROUP BY time($__interval) fill(null)",
@@ -405,7 +414,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+            "uid": "${DS_INFLUXDB}"
           },
           "legendFormat": "Free Physical Memory",
           "query": "SELECT mean(\"free_physical_memory\") FROM \"Cisco-IOS-XR-nto-misc-oper:memory-summary/nodes/node/summary\" WHERE \"host\" =~ /^$node$/ AND $timeFilter GROUP BY time($__interval) fill(null)",
@@ -415,7 +424,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+            "uid": "${DS_INFLUXDB}"
           },
           "legendFormat": "Image Memory",
           "query": "SELECT mean(\"image_memory\") FROM \"Cisco-IOS-XR-nto-misc-oper:memory-summary/nodes/node/summary\" WHERE \"host\" =~ /^$node$/ AND $timeFilter GROUP BY time($__interval) fill(null)",
@@ -429,7 +438,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+        "uid": "${DS_INFLUXDB}"
       },
       "gridPos": {
         "h": 1,
@@ -442,7 +451,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+            "uid": "${DS_INFLUXDB}"
           },
           "refId": "A"
         }
@@ -453,7 +462,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -561,7 +570,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+            "uid": "${DS_INFLUXDB}"
           },
           "legendFormat": "{{interface_name}} - In",
           "query": "SELECT non_negative_derivative(mean(\"bytes_received\"), 1s) FROM \"Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters\" WHERE \"host\" =~ /^$node$/ AND \"interface_name\" =~ /^$interface$/ AND $timeFilter GROUP BY time($__interval), \"interface_name\" fill(null)",
@@ -571,7 +580,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+            "uid": "${DS_INFLUXDB}"
           },
           "legendFormat": "{{interface_name}} - Out",
           "query": "SELECT non_negative_derivative(mean(\"bytes_sent\"), 1s) FROM \"Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters\" WHERE \"host\" =~ /^$node$/ AND \"interface_name\" =~ /^$interface$/ AND $timeFilter GROUP BY time($__interval), \"interface_name\" fill(null)",
@@ -585,7 +594,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+        "uid": "${DS_INFLUXDB}"
       },
       "gridPos": {
         "h": 1,
@@ -598,7 +607,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+            "uid": "${DS_INFLUXDB}"
           },
           "refId": "A"
         }
@@ -609,7 +618,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+        "uid": "${DS_INFLUXDB}"
       },
       "fieldConfig": {
         "defaults": {
@@ -685,7 +694,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+            "uid": "${DS_INFLUXDB}"
           },
           "legendFormat": "{{interface_name}} - Input Drops",
           "query": "SELECT cumulative_sum(mean(\"input_queue_drops\")) FROM \"Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters\" WHERE \"host\" =~ /^$node$/ AND \"interface_name\" =~ /^$interface$/ AND $timeFilter GROUP BY time($__interval), \"interface_name\" fill(0)",
@@ -695,7 +704,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+            "uid": "${DS_INFLUXDB}"
           },
           "legendFormat": "{{interface_name}} - Output Drops",
           "query": "SELECT cumulative_sum(mean(\"output_drops\")) FROM \"Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters\" WHERE \"host\" =~ /^$node$/ AND \"interface_name\" =~ /^$interface$/ AND $timeFilter GROUP BY time($__interval), \"interface_name\" fill(0)",
@@ -705,7 +714,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+            "uid": "${DS_INFLUXDB}"
           },
           "legendFormat": "{{interface_name}} - CRC Errors",
           "query": "SELECT cumulative_sum(mean(\"crc_errors\")) FROM \"Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters\" WHERE \"host\" =~ /^$node$/ AND \"interface_name\" =~ /^$interface$/ AND $timeFilter GROUP BY time($__interval), \"interface_name\" fill(0)",
@@ -740,7 +749,7 @@
         },
         "datasource": {
           "type": "influxdb",
-          "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+          "uid": "${DS_INFLUXDB}"
         },
         "definition": "SHOW TAG VALUES FROM /.*/ WITH KEY = \"host\"",
         "hide": 0,
@@ -768,7 +777,7 @@
         },
         "datasource": {
           "type": "influxdb",
-          "uid": "bac0ec84-b52a-47b7-93d2-a788422b6d11"
+          "uid": "${DS_INFLUXDB}"
         },
         "definition": "SHOW TAG VALUES FROM \"Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters\" WITH KEY = \"interface_name\"",
         "hide": 0,
